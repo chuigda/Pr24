@@ -126,9 +126,10 @@ impl VGAWriter {
     }
 
     fn clear_row(&mut self, buffer: &mut VGABuffer, row: usize) {
+
         let blank: Kharakter = Kharakter {
             kharakter: b' ',
-            color: self.color
+            color: ColorCode::new(Color::LightCyan, Color::Black)
         };
 
         for col /*: usize*/ in 0..VGA_WIDTH {
@@ -151,6 +152,10 @@ pub static WRITER: Mutex<VGAWriter> = Mutex::new(VGAWriter {
     color: ColorCode::new(Color::LightCyan, Color::Black),
     buffer: 0xb8000 as usize as *mut VGABuffer
 });
+
+pub fn get_color() -> ColorCode {
+    WRITER.lock().color
+}
 
 pub fn set_color(color: ColorCode) {
     WRITER.lock().color = color;
