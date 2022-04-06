@@ -8,6 +8,8 @@ publish = false
 
 [dependencies]
 bootloader = "0.9"
+spin = { version = "0.9", features=["mutex"] }
+volatile = "0.2"
 
 [profile.dev]
 panic = "abort"
