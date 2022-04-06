@@ -14,8 +14,3 @@ panic = "abort"
 
 [profile.release]
 panic = "abort"
-
-[build]
-rustflags = [
-    "-Z", "verbose"
-]
